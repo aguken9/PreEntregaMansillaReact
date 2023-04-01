@@ -1,0 +1,10 @@
+.principal {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.img-principal {
+    width: 60px;
+    height: 55px;
+}
