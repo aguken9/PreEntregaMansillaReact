@@ -1,13 +1,12 @@
 import React from 'react'
 import './cart.css'
 import cart from './assets/carrito.jpg'
+import {  FaShoppingCart} from "react-icons/fa";
+
 
 export const CartWidget = () => {
   return (
-    <div className="principal">
-        <img src={cart} alt="cart-widget" className="img-principal"/>
-        1
-    </div>
+    <FaShoppingCart className="carrito"/>
   )
 }
 
