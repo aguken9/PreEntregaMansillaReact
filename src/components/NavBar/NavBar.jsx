@@ -9,9 +9,9 @@ export const NavBar = () => {
         <p>Ecommerce</p>
         <p>Nosotros</p>
         <p>Productos</p>
-        <p>Contacto</p>  
+        <p>Contacto</p>
+        <CartWidget/>
     </div>
-    <CartWidget/>
     </nav>
   )
 }
