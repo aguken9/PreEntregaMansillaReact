@@ -6,6 +6,6 @@
       setTimeout(() => {
           resolve(stock)
           reject("Rechazado")
-      }, 2000)
+      }, 500)
     })
 }

@@ -4,22 +4,33 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import {NavBar} from "./components/NavBar/NavBar";
 import './App.css'
 import { ItemCount } from './components/ItemCount/ItemCount';
-// import { Pika } from './components/Pika/Pika';
+ import { Pika } from './components/Pika/Pika';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+  Route
+} from 'react-router-dom';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+
 
 
 function App() {
   return (
-    <>
-    <div className="principio">
-      <NavBar/>
-      {/* <ItemCount/>  */}
-      <h2 className="titulo"> Bienvenidos al Nuevo Eccomerce</h2>
-      <ItemListContainer greating={"Hola Mundo"}/>
-       {<ItemCount/>}
-      {/* <Pika/> */}
+ 
+    <div className='App'>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element= {<ItemListContainer/>}/>
+          <Route path='/productos/:categoryId' element={<ItemListContainer/>}/>
+          <Route path='/detail/:itemId' element={<ItemDetailContainer/>}/>
+          <Route path='/counter' element= {<ItemCount/>}/>
+          <Route path='/pika' element= {<Pika/>}/>
+          <Route path='*' element= {<Navigate to='/'/>}/>
+        </Routes>
+      </Router>
     </div>
-    </>
-
   );
 }
 
