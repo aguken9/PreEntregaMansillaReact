@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
     setLoading(true)
     pedirProductos()
       .then(res => {
-        setItem(res.find(prod => prod.id === Number(itemId)))
+        setItem(res.find(prod => prod.id === itemId))
     })
     .catch((error) => console.log(error))
     .finally(()=>{
