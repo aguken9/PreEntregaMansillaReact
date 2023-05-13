@@ -1,4 +1,10 @@
 .listado {
     display: flex;
     justify-content: space-around;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+Button {
+    display: flex;
 }
