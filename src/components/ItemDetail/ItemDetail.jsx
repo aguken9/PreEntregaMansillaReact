@@ -3,8 +3,10 @@ import {Card, Button} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import {ItemCount} from '../ItemCount/ItemCount'
 import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-export const ItemDetail = ({id, description, precio, img, category, stock}) => {
+export const ItemDetail = ({id, name, description, precio, img, category, stock}) => {
 
   const navigate = useNavigate()
   
@@ -19,6 +21,7 @@ export const ItemDetail = ({id, description, precio, img, category, stock}) => {
   const sumarAlCarrito = () => {
     const newItem = {
       id,
+      name,
       description,
       img,
       precio,
@@ -27,6 +30,12 @@ export const ItemDetail = ({id, description, precio, img, category, stock}) => {
     }
     console.log(newItem)
     addToCart(newItem)
+    Swal.fire({
+      icon: 'success',
+      title: 'Producto agregado',
+      showConfirmButton: false,
+      timer: 1000
+    })
   }
 
   return (
@@ -34,7 +43,7 @@ export const ItemDetail = ({id, description, precio, img, category, stock}) => {
     <Card style={{ width: '25rem' }}>
       <Card.Img variant="top" src={img}/>
       <Card.Body>
-        <Card.Title>{id}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Title>{description}</Card.Title>
         <Card.Title>{precio}</Card.Title>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium facilis blanditiis quia eveniet facere iure earum? Iure at beatae iusto porro amet. Illo, soluta! Autem necessitatibus nostrum atque nesciunt voluptatibus!</p>
@@ -43,6 +52,7 @@ export const ItemDetail = ({id, description, precio, img, category, stock}) => {
         <Button onClick={sumarAlCarrito}>Agregar al Carrito!</Button>    
       </Card.Body>
       <Button onClick={volverHaciaAtras} className='btn btn-sucess'>Volver atras!</Button>
+      <Link to= '/cart' className='btn btn-info'>Ir al Carrito</Link>
     </Card>
     </div>
     
